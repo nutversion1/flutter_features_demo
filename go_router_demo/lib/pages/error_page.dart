@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:go_router_demo/routes.dart';
@@ -10,6 +11,7 @@ class ErrorPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Error Page'),
+        automaticallyImplyLeading: kIsWeb ? false : true,
       ),
       body: Center(
         child: ElevatedButton(

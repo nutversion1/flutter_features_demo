@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:go_router_demo/routes.dart';
@@ -17,6 +18,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Home Page'),
+        automaticallyImplyLeading: kIsWeb ? false : true,
       ),
       body: Container(
         color: isDarkBackground ? Colors.grey : Colors.white,
@@ -38,7 +40,10 @@ class _HomePageState extends State<HomePage> {
             ),
             ListTile(
               title: Text('B Page'),
-              onTap: () => context.pushNamed(routeB),
+              onTap: () => context.pushNamed(
+                routeB,
+                queryParams: {'t1': 'PageB'},
+              ),
             ),
             SizedBox(height: 20),
             SwitchListTile(

@@ -1,9 +1,15 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:go_router_demo/routes.dart';
 
 class BPage extends StatefulWidget {
-  const BPage({Key? key}) : super(key: key);
+  final String text1;
+
+  const BPage({
+    super.key,
+    required this.text1,
+  });
 
   @override
   State<BPage> createState() => _BPageState();
@@ -17,6 +23,7 @@ class _BPageState extends State<BPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('B Page'),
+        automaticallyImplyLeading: kIsWeb ? false : true,
       ),
       body: Container(
         color: isDarkBackground ? Colors.grey : Colors.white,
@@ -24,7 +31,10 @@ class _BPageState extends State<BPage> {
           children: [
             ListTile(
               title: Text('B1 Page'),
-              onTap: () => context.pushNamed(routeB1),
+              onTap: () => context.pushNamed(
+                routeB1,
+                queryParams: {'t1': 'PageB1'},
+              ),
             ),
             ListTile(
               title: Text('B2 Page'),
@@ -37,6 +47,8 @@ class _BPageState extends State<BPage> {
                 setState(() => isDarkBackground = newValue);
               },
             ),
+            Expanded(child: Container()),
+            Text('${widget.text1}'),
             Expanded(child: Container()),
             Padding(
               padding: const EdgeInsets.all(8.0),

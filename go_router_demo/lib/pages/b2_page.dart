@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:go_router_demo/routes.dart';
@@ -17,6 +18,7 @@ class _B2PageState extends State<B2Page> {
     return Scaffold(
       appBar: AppBar(
         title: Text('B2 Page'),
+        automaticallyImplyLeading: kIsWeb ? false : true,
       ),
       body: Container(
         color: isDarkBackground ? Colors.grey : Colors.white,

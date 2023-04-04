@@ -38,14 +38,18 @@ final router = GoRouter(
           name: routeB,
           path: routeB,
           builder: (context, state) {
-            return const BPage();
+            return BPage(
+              text1: state.queryParams['t1']!,
+            );
           },
           routes: [
             GoRoute(
               name: routeB1,
               path: routeB1,
               builder: (context, state) {
-                return const B1Page();
+                return B1Page(
+                  text1: state.queryParams['t1']!,
+                );
               },
             ),
             GoRoute(

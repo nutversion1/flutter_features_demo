@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:go_router_demo/routes.dart';
@@ -25,6 +26,7 @@ class _APageState extends State<APage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('A Page'),
+        automaticallyImplyLeading: kIsWeb ? false : true,
       ),
       body: Container(
         color: isDarkBackground ? Colors.grey : Colors.white,
